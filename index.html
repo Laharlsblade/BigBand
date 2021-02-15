@@ -1,0 +1,149 @@
+<html>
+    <head>
+        <script src="index.js" type="module"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon.png">
+        <!-- Thanks https://realfavicongenerator.net/ -->
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+    </head>
+    <body class="dark">
+        <div id="settings" onclick="settingsClick(event)">
+            <img 
+                src="images/gear.png"
+                class="settings-gear" 
+                onclick="toggleSettings()" 
+            >
+            <div id="settings-list">
+                <div class="settings-item">
+                    <input 
+                        type="checkbox" 
+                        id="dark-mode-input"
+                        checked="false"
+                        oninput="toggleDarkMode()"
+                    >
+                    <label for="dark-mode-input">Dark Mode</label>
+                </div>
+                <div class="settings-item">
+                    <input 
+                        type="checkbox" 
+                        id="debug-input"
+                        checked="false"
+                        oninput="toggleDebug()"
+                    >
+                    <label for="debug-input">Debug Info</label>
+                </div>
+                <div class="settings-item">
+                   <a href="https://github.com/Laharlsblade/BigBand" target="_blank">View on Github</a>
+                </div>
+            </div>
+        </div>
+        <div id="loading">
+            Loading sounds, please wait...
+        </div>
+        <div class="main">
+            <div class="song-container">
+                <div id="song-collapse" onclick="toggleSongArea()">Hide</div>
+                <textarea rows=10 cols=100 id="song-area">LP+HP, LP+HP, uLP+HP, LK+MK, MK+HK, HK, LP, LPHP, LP, HK</textarea>
+                <div id="song-assist-settings">
+                    <!-- <div class="checkbox-item">
+                        <input 
+                            type="checkbox"
+                            id="mistake-restart-song-input"
+                            oninput=""
+                        >
+                        <label for="mistake-restart-song-input">Restart on Misinput</label>
+                    </div> -->
+                    <div class="checkbox-item">
+                        <input 
+                            type="checkbox"
+                            id="repeat-song-input"
+                            oninput="toggleRepeatSong()"
+                        >
+                        <label for="repeat-song-input">Repeat</label>
+                    </div>
+                    <button id="start-song" onclick="startUserSong()" oncontextmenu="startSongButtonListener(event)">Start</button>
+                    <button id="stop-song" disabled onclick="stopUserSong()">Stop</button>
+                </div>
+            </div>
+            <div class="button-container">
+                <div class="control-container">
+                    <div class="button-row">
+                        <div class="button-control">
+                            <img src="images/UP.png" id="UP">
+                            <button onclick="changeControl(event, 'UP')">W</button>
+                        </div>
+                        <div class="button-control">
+                            <img 
+                                src="images/LP.png" 
+                                id="LP"
+                                class="circle" 
+                                onclick="stopAllSounds(); playSound('LP')"
+                            >
+                            <button onclick="changeControl(event, 'LP')">Numpad 4</button>
+                        </div>
+                        <div class="button-control">
+                            <img 
+                                src="images/MP.png"
+                                id="MP"
+                                class="circle" 
+                                onclick="stopAllSounds(); playSound('MP')"
+                            >
+                            <button onclick="changeControl(event, 'MP')">Numpad 5</button>
+                        </div>
+                        <div class="button-control">
+                            <img 
+                                src="images/HP.png"
+                                id="HP"
+                                class="circle"  
+                                onclick="stopAllSounds(); playSound('HP')"
+                            >
+                            <button onclick="changeControl(event, 'HP')">Numpad 6</button>
+                        </div>
+                    </div>
+                    <div class="button-row">
+                        <div class="button-control">
+                            <img src="images/DOWN.png" id="DOWN">
+                            <button onclick="changeControl(event, 'DOWN')">S</button>
+                        </div>
+                        <div class="button-control">
+                            <img 
+                                src="images/LK.png"
+                                id="LK"
+                                class="circle" 
+                                onclick="stopAllSounds(); playSound('LK')"
+                            >
+                            <button onclick="changeControl(event, 'LK')">Numpad 1</button>
+                        </div>
+                        <div class="button-control">
+                            <img 
+                                src="images/MK.png"
+                                id="MK"
+                                class="circle"  
+                                onclick="stopAllSounds(); playSound('MK')"
+                            >
+                            <button onclick="changeControl(event, 'MK')">Numpad 2</button>
+                        </div>
+                        <div class="button-control">
+                            <img 
+                                src="images/HK.png"
+                                id="HK"
+                                class="circle"  
+                                onclick="stopAllSounds(); playSound('HK')"
+                            >
+                            <button onclick="changeControl(event, 'HK')">Numpad 3</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-control">
+                    <button onclick="resetControlsToDefault('kb')">Keyboard Default</button>
+                    <button onclick="resetControlsToDefault('gp')">Gamepad Default</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

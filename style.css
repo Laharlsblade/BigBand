@@ -1,0 +1,157 @@
+
+body {
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body.dark {
+    background: hsl(0, 0%, 15%);
+}
+
+img {
+    width: 50px;
+}
+
+img.circle {
+    border-radius: 25px;
+}
+
+img.highlighted {
+    box-shadow: 0 0 8px 8px hsl(0, 0%, 10%);
+}
+
+.dark img.highlighted {
+    box-shadow: 0 0 8px 8px hsl(0, 0%, 90%);
+}
+
+#settings {
+    position: absolute;
+    top: 10;
+    left: 10;
+}
+
+#settings.open {
+    background: hsl(0, 0%, 80%);
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+}
+
+.settings-gear {
+    width: 30px;
+    margin: 3px;
+
+    cursor: pointer;
+}
+
+#settings-list {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 10px;
+}
+
+.settings-item {
+    display: none;
+}
+
+.open .settings-item {
+    display: block;
+    margin: 4px 0;
+}
+
+#loading {
+    display: none;
+}
+
+#loading.open {
+    position: absolute;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 400px;
+    height: 250px;
+
+    background: hsl(0, 0%, 80%);
+    border-radius: 5px;
+    border: 2px solid black;
+
+    font-size: 1.8rem;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.song-container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+#song-collapse {
+    align-self: flex-start;
+
+    background: hsl(0, 0%, 80%);
+    color: black;
+
+    padding: 5px;
+    margin-left: 1px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+#song-area {
+    resize: none;
+}
+
+#song-assist-settings {
+    align-self: flex-end;
+
+    display: flex;
+    align-items: center;
+
+    margin-top: 10px;
+}
+
+#song-assist-settings > * {
+    margin: 0 4px;
+}
+
+.checkbox-item {
+    background: hsl(0, 0%, 90%);
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+}
+
+.button-container button {
+   margin-top: 10px;
+}
+
+.control-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.button-row {
+    display: flex;
+}
+
+.button-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    width: 160px;
+    margin: 20 0;
+}
